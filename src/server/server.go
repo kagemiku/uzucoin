@@ -97,7 +97,7 @@ func (s *Service) ResolveNonce(c context.Context, p *pb.Nonce) (*pb.ResolveNonce
 	succeeded := false
 	newHash, _ := CalcIdleHash(&Idle{transaction, p.Nonce, p.PrevHash})
 	if strings.Contains(newHash, "757a756b69") {
-		amount = 10.0
+		amount = 24.0
 		succeeded = true
 	} else if strings.Contains(newHash, "757a75") || strings.Contains(newHash, "7a756b69") {
 		amount = 4.0
