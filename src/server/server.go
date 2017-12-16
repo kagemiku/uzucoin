@@ -32,22 +32,22 @@ type Service struct {
 func (s *Service) AddTransaction(c context.Context, p *pb.Transaction) (*pb.AddTransactionResponse, error) {
 	s.m.Lock()
 	defer s.m.Unlock()
-	fmt.Println("new transaction", p)
+	fmt.Printf("%f うづコイン送られたよ！\n", p.Amount)
 
 	timestamp := time.Now().String()
 	s.transactionQueue = append(s.transactionQueue, &pb.FixedTransaction{p.FromUID, p.ToUID, p.Amount, timestamp})
-	fmt.Println("current queue", s.transactionQueue)
-	fmt.Println()
+	//fmt.Println("current queue", s.transactionQueue)
+	//fmt.Println()
 
 	return &pb.AddTransactionResponse{timestamp}, nil
 }
 
 func CalcIdleHash(idle *Idle) (string, error) {
 	payload := fmt.Sprintf("%s%s%s", idle.transaction.Timestamp, idle.nonce, idle.prevHash)
-	fmt.Println("payload:", payload)
+	//fmt.Println("payload:", payload)
 	hash := fmt.Sprintf("%x", sha256.Sum256([]byte(payload)))
-	fmt.Println("hash:", hash)
-	fmt.Println()
+	//fmt.Println("hash:", hash)
+	//fmt.Println()
 
 	return hash, nil
 }
@@ -55,7 +55,7 @@ func CalcIdleHash(idle *Idle) (string, error) {
 func (s *Service) GetTask(c context.Context, p *pb.GetTaskRequest) (*pb.Task, error) {
 	s.m.Lock()
 	defer s.m.Unlock()
-	fmt.Println("get task ", p)
+	fmt.Println("S(min)ING!してね♪")
 
 	if len(s.transactionQueue) == 0 {
 		task := &pb.Task{false, &pb.FixedTransaction{}, ""}
@@ -71,6 +71,7 @@ func (s *Service) GetTask(c context.Context, p *pb.GetTaskRequest) (*pb.Task, er
 }
 
 func ShowChain(s *Service) {
+	fmt.Println("いまのうづコインのーとです")
 	for index, idle := range s.idles {
 		fmt.Printf("[%d], %s\n", index, idle)
 	}
@@ -79,7 +80,7 @@ func ShowChain(s *Service) {
 func (s *Service) ResolveNonce(c context.Context, p *pb.Nonce) (*pb.ResolveNonceResponse, error) {
 	s.m.Lock()
 	defer s.m.Unlock()
-	fmt.Println("resolve", p)
+	fmt.Printf("ありがとー！")
 
 	var prevHash string
 	if len(s.idles) == 0 {
@@ -108,9 +109,9 @@ func (s *Service) ResolveNonce(c context.Context, p *pb.Nonce) (*pb.ResolveNonce
 	}
 
 	if succeeded {
+		fmt.Printf(" %f うづコインあげるね♪\n", amount)
 		s.transactionQueue = s.transactionQueue[1:]
 		s.idles = append(s.idles, &Idle{transaction, p.Nonce, p.PrevHash})
-		fmt.Println("current chain")
 		ShowChain(s)
 		fmt.Println()
 	}
@@ -125,7 +126,7 @@ func main() {
 	}
 	server := grpc.NewServer()
 
-	fmt.Println(initialHash)
+	// fmt.Println(initialHash)
 
 	pb.RegisterAPIServer(server, new(Service))
 	server.Serve(lis)
