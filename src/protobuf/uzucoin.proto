@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+service Uzucoin {
+    rpc AddTransaction(TransactionRequest) returns (AddTransactionResponse);
+    rpc GetTask(GetTaskRequest) returns (Task);
+    rpc ResolveNonce(Nonce) returns (ResolveNonceResponse);
+    rpc GetHistory(GetHistoryRequest) returns (History);
+    rpc GetBalance(GetBalanceRequest) returns (Balance);
+}
+
+// AddTransaction
+message TransactionRequest {
+    string fromUID = 1;
+    string toUID = 2;
+    double amount = 3;
+}
+
+message AddTransactionResponse {
+    string timestamp = 1;
+}
+
+// GetTask
+message GetTaskRequest { }
+
+message Transaction {
+    string fromUID = 1;
+    string toUID = 2;
+    double amount = 3;
+    string timestamp = 4;
+}
+
+message Task {
+    bool exists = 1;
+    Transaction transaction = 2;
+    string prevHash = 3;
+}
+
+// ResolveNonce
+message Nonce {
+    string prevHash = 1;
+    string nonce = 2;
+}
+
+message ResolveNonceResponse {
+    bool succeeded = 1;
+    double amount = 2;
+}
+
+// GetHistory
+message GetHistoryRequest {
+    string uid = 1;
+}
+
+message History {
+    repeated Transaction transactions = 1;
+}
+
+// Get Balance
+message GetBalanceRequest {
+    string uid = 1;
+}
+
+message Balance {
+    double balance = 1;
+}
