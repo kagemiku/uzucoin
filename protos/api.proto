@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+service API {
+    rpc AddTransaction(Transaction) returns (AddTransactionResponse);
+    rpc GetTask(GetTaskRequest) returns (Task);
+    rpc ResolveNonce(Nonce) returns (ResolveNonceResponse);
+}
+
+message Transaction {
+    string fromUID = 1;
+    string toUID = 2;
+    double amount = 3;
+}
+
+message FixedTransaction {
+    string fromUID = 1;
+    string toUID = 2;
+    double amount = 3;
+    string timestamp = 4;
+}
+
+message AddTransactionResponse {
+    string timestamp = 1;
+}
+
+message GetTaskRequest { }
+
+message Task {
+    bool exists = 1;
+    FixedTransaction transaction = 2;
+    string prevHash = 3;
+}
+
+message Nonce {
+    string prevHash = 1;
+    string nonce = 2;
+}
+
+message ResolveNonceResponse {
+    bool succeeded = 1;
+    double amount = 2;
+}
+
