@@ -16,3 +16,6 @@ vendor
 
 # Protobuf
 *.pb.go
+
+# exe
+uzucoin
