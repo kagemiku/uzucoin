@@ -1,8 +1,14 @@
 package main
 
-import pb "github.com/kagemiku/uzucoin/src/server/pb"
+import (
+	"errors"
+
+	pb "github.com/kagemiku/uzucoin/src/server/pb"
+)
 
 type uzucoinDataStore interface {
+	getProducers() []*Producer
+	addProducer(*Producer)
 	getIdles() []*pb.Idle
 	addIdle(*pb.Idle) error
 	getTransactions() []*pb.Transaction
@@ -12,6 +18,30 @@ type uzucoinDataStore interface {
 
 type uzucoinRepositoryImpl struct {
 	datastore uzucoinDataStore
+}
+
+func (repository *uzucoinRepositoryImpl) registerProducer(producer *Producer) error {
+	producers := repository.datastore.getProducers()
+	for _, p := range producers {
+		if *producer == *p {
+			return errors.New("Producer is already registered")
+		}
+	}
+
+	repository.datastore.addProducer(producer)
+
+	return nil
+}
+
+func (repository *uzucoinRepositoryImpl) getProducer(uid string) (*Producer, error) {
+	producers := repository.datastore.getProducers()
+	for _, producer := range producers {
+		if producer.uid == uid {
+			return producer, nil
+		}
+	}
+
+	return nil, errors.New("No such Producuer")
 }
 
 func (repository *uzucoinRepositoryImpl) getIdelsCount() int {

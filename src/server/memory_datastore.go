@@ -8,9 +8,24 @@ import (
 )
 
 type uzucoinMemoryDataStore struct {
+	producers []*Producer
 	idles     []*pb.Idle
 	taskQueue []*pb.Transaction
 	m         sync.RWMutex
+}
+
+func (datastore *uzucoinMemoryDataStore) getProducers() []*Producer {
+	datastore.m.RLock()
+	defer datastore.m.RUnlock()
+
+	return datastore.producers
+}
+
+func (datastore *uzucoinMemoryDataStore) addProducer(producer *Producer) {
+	datastore.m.Lock()
+	defer datastore.m.Unlock()
+
+	datastore.producers = append(datastore.producers, producer)
 }
 
 func (datastore *uzucoinMemoryDataStore) getIdles() []*pb.Idle {
@@ -74,6 +89,7 @@ func (datastore *uzucoinMemoryDataStore) addIdle(idle *pb.Idle) error {
 
 func initUzucoinMemoryDataStore() (uzucoinDataStore, error) {
 	datastore := &uzucoinMemoryDataStore{
+		producers: make([]*Producer, 0),
 		idles:     make([]*pb.Idle, 0),
 		taskQueue: make([]*pb.Transaction, 0),
 		m:         sync.RWMutex{},

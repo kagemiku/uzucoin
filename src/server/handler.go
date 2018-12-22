@@ -10,6 +10,10 @@ type uzucoinHandler struct {
 	usecase uzucoinUsecase
 }
 
+func (handler *uzucoinHandler) RegisterProducer(ctx context.Context, in *pb.RegisterProducerRequest) (*pb.RegisterProducerResponse, error) {
+	return handler.usecase.registerProducer(in)
+}
+
 func (handler *uzucoinHandler) GetHistory(ctx context.Context, in *pb.GetHistoryRequest) (*pb.History, error) {
 	return handler.usecase.getHistory(in)
 }

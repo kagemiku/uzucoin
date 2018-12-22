@@ -3,12 +3,23 @@ syntax = "proto3";
 package uzucoin;
 
 service Uzucoin {
+    rpc RegisterProducer(RegisterProducerRequest) returns (RegisterProducerResponse);
     rpc GetHistory(GetHistoryRequest) returns (History);
     rpc GetBalance(GetBalanceRequest) returns (Balance);
     rpc GetChain(GetChainRequest) returns (Chain);
     rpc AddTransaction(AddTransactionRequest) returns (AddTransactionResponse);
     rpc GetTask(GetTaskRequest) returns (Task);
     rpc ResolveNonce(ResolveNonceRequest) returns (ResolveNonceResponse);
+}
+
+// RegisterProducer
+message RegisterProducerRequest {
+    string uid = 1;
+    string name = 2;
+}
+
+message RegisterProducerResponse {
+    bool succeeded = 1;
 }
 
 // GetHistory

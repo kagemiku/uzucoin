@@ -2,6 +2,7 @@ package main
 
 import (
 	"crypto/sha256"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -10,6 +11,8 @@ import (
 )
 
 type uzucoinRepository interface {
+	registerProducer(*Producer) error
+	getProducer(string) (*Producer, error)
 	getIdelsCount() int
 	getLatestIdle() *pb.Idle
 	getIdles() []*pb.Idle
@@ -20,6 +23,7 @@ type uzucoinRepository interface {
 }
 
 type uzucoinUsecase interface {
+	registerProducer(*pb.RegisterProducerRequest) (*pb.RegisterProducerResponse, error)
 	getHistory(*pb.GetHistoryRequest) (*pb.History, error)
 	getBalance(*pb.GetBalanceRequest) (*pb.Balance, error)
 	getChain(*pb.GetChainRequest) (*pb.Chain, error)
@@ -51,10 +55,26 @@ func calcIdleHash(idle *pb.Idle) string {
 	return hash
 }
 
+func (usecase *uzucoinUsecaseImpl) registerProducer(request *pb.RegisterProducerRequest) (*pb.RegisterProducerResponse, error) {
+	producer := &Producer{
+		uid:  request.Uid,
+		name: request.Name,
+	}
+
+	if err := usecase.repository.registerProducer(producer); err != nil {
+		return &pb.RegisterProducerResponse{Succeeded: false}, err
+	}
+
+	return &pb.RegisterProducerResponse{Succeeded: true}, nil
+}
+
 func (usecase *uzucoinUsecaseImpl) getHistory(request *pb.GetHistoryRequest) (*pb.History, error) {
 	uid := request.Uid
-	transactions := usecase.repository.getTransactions()
+	if _, err := usecase.repository.getProducer(uid); err != nil {
+		return &pb.History{Transactions: []*pb.Transaction{}}, err
+	}
 
+	transactions := usecase.repository.getTransactions()
 	history := make([]*pb.Transaction, 0)
 	for _, transaction := range transactions {
 		if transaction.FromUID == uid || transaction.ToUID == uid {
