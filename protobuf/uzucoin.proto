@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package uzucoin;
+
 service Uzucoin {
     rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
     rpc GetHistory(GetHistoryRequest) returns (History);
