@@ -5,6 +5,7 @@ import pb "github.com/kagemiku/uzucoin/src/server/pb"
 type uzucoinDataStore interface {
 	getIdles() []*Idle
 	getTasks() []*pb.Transaction
+	addTask(*pb.Transaction)
 }
 
 type uzucoinRepositoryImpl struct {
@@ -33,6 +34,10 @@ func (repository *uzucoinRepositoryImpl) getHeadTask() *pb.Transaction {
 	}
 
 	return tasks[0]
+}
+
+func (repository *uzucoinRepositoryImpl) addTask(task *pb.Transaction) {
+	repository.datastore.addTask(task)
 }
 
 func initUzucoinRepository(datastore uzucoinDataStore) (uzucoinRepository, error) {

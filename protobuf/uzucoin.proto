@@ -5,7 +5,7 @@ package uzucoin;
 service Uzucoin {
     rpc GetHistory(GetHistoryRequest) returns (History);
     rpc GetBalance(GetBalanceRequest) returns (Balance);
-    rpc AddTransaction(TransactionRequest) returns (AddTransactionResponse);
+    rpc AddTransaction(AddTransactionRequest) returns (AddTransactionResponse);
     rpc GetTask(GetTaskRequest) returns (Task);
     rpc ResolveNonce(Nonce) returns (ResolveNonceResponse);
 }
@@ -29,7 +29,7 @@ message Balance {
 }
 
 // AddTransaction
-message TransactionRequest {
+message AddTransactionRequest {
     string fromUID = 1;
     string toUID = 2;
     double amount = 3;

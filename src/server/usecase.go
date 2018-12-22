@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/sha256"
 	"fmt"
+	"time"
 
 	pb "github.com/kagemiku/uzucoin/src/server/pb"
 )
@@ -11,12 +12,13 @@ type uzucoinRepository interface {
 	getIdelsCount() int
 	getLatestIdle() *Idle
 	getHeadTask() *pb.Transaction
+	addTask(*pb.Transaction)
 }
 
 type uzucoinUsecase interface {
 	getHistory(*pb.GetHistoryRequest) (*pb.History, error)
 	getBalance(*pb.GetBalanceRequest) (*pb.Balance, error)
-	addTransaction(*pb.TransactionRequest) (*pb.AddTransactionResponse, error)
+	addTransaction(*pb.AddTransactionRequest) (*pb.AddTransactionResponse, error)
 	getTask(*pb.GetTaskRequest) (*pb.Task, error)
 	resolveNonce(*pb.Nonce) (*pb.ResolveNonceResponse, error)
 }
@@ -38,16 +40,25 @@ func calcIdleHash(idle *Idle) string {
 	return hash
 }
 
-func (usecase *uzucoinUsecaseImpl) addTransaction(request *pb.TransactionRequest) (*pb.AddTransactionResponse, error) {
-	return nil, nil
-}
-
 func (usecase *uzucoinUsecaseImpl) getHistory(request *pb.GetHistoryRequest) (*pb.History, error) {
 	return nil, nil
 }
 
 func (usecase *uzucoinUsecaseImpl) getBalance(request *pb.GetBalanceRequest) (*pb.Balance, error) {
 	return nil, nil
+}
+
+func (usecase *uzucoinUsecaseImpl) addTransaction(request *pb.AddTransactionRequest) (*pb.AddTransactionResponse, error) {
+	timestamp := time.Now().String()
+	task := &pb.Transaction{
+		FromUID:   request.FromUID,
+		ToUID:     request.ToUID,
+		Amount:    request.Amount,
+		Timestamp: timestamp,
+	}
+	usecase.repository.addTask(task)
+
+	return &pb.AddTransactionResponse{Timestamp: timestamp}, nil
 }
 
 func (usecase *uzucoinUsecaseImpl) getTask(request *pb.GetTaskRequest) (*pb.Task, error) {

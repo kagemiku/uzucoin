@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"sync"
 
 	pb "github.com/kagemiku/uzucoin/src/server/pb"
@@ -24,6 +25,13 @@ func (datastore *uzucoinMemoryDataStore) getTasks() []*pb.Transaction {
 	defer datastore.m.RUnlock()
 
 	return datastore.taskQueue
+}
+
+func (datastore *uzucoinMemoryDataStore) addTask(task *pb.Transaction) {
+	datastore.m.Lock()
+	defer datastore.m.Unlock()
+
+	datastore.taskQueue = append(datastore.taskQueue, task)
 }
 
 func initUzucoinMemoryDataStore() (uzucoinDataStore, error) {
