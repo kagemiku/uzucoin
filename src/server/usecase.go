@@ -4,6 +4,9 @@ import (
 	pb "github.com/kagemiku/uzucoin/src/server/pb"
 )
 
+type uzucoinRepository interface {
+}
+
 type uzucoinUsecase interface {
 	registerUser(*pb.RegisterUserRequest) (*pb.RegisterUserResponse, error)
 	getHistory(*pb.GetHistoryRequest) (*pb.History, error)
@@ -13,7 +16,9 @@ type uzucoinUsecase interface {
 	resolveNonce(*pb.Nonce) (*pb.ResolveNonceResponse, error)
 }
 
-type uzucoinUsecaseImpl struct{}
+type uzucoinUsecaseImpl struct {
+	repository uzucoinRepository
+}
 
 func (usecase *uzucoinUsecaseImpl) registerUser(request *pb.RegisterUserRequest) (*pb.RegisterUserResponse, error) {
 	return nil, nil
@@ -37,4 +42,10 @@ func (usecase *uzucoinUsecaseImpl) getTask(request *pb.GetTaskRequest) (*pb.Task
 
 func (usecase *uzucoinUsecaseImpl) resolveNonce(nonce *pb.Nonce) (*pb.ResolveNonceResponse, error) {
 	return nil, nil
+}
+
+func initUzucoinUsecase(repository uzucoinRepository) (uzucoinUsecase, error) {
+	usecase := &uzucoinUsecaseImpl{repository: repository}
+
+	return usecase, nil
 }

@@ -3,8 +3,12 @@ package main
 type uzucoinDataStore interface {
 }
 
-type uzucoinRepository interface {
+type uzucoinRepositoryImpl struct {
+	datastore uzucoinDataStore
 }
 
-type uzucoinRepositoryImpl struct {
+func initUzucoinRepository(datastore uzucoinDataStore) (uzucoinRepository, error) {
+	repository := &uzucoinRepositoryImpl{datastore: datastore}
+
+	return repository, nil
 }
