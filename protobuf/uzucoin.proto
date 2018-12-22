@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+package uzucoin;
+
+service Uzucoin {
+    rpc RegisterProducer(RegisterProducerRequest) returns (RegisterProducerResponse);
+    rpc GetHistory(GetHistoryRequest) returns (History);
+    rpc GetBalance(GetBalanceRequest) returns (Balance);
+    rpc GetChain(GetChainRequest) returns (Chain);
+    rpc AddTransaction(AddTransactionRequest) returns (AddTransactionResponse);
+    rpc GetTask(GetTaskRequest) returns (Task);
+    rpc ResolveNonce(ResolveNonceRequest) returns (ResolveNonceResponse);
+}
+
+// RegisterProducer
+message RegisterProducerRequest {
+    string uid = 1;
+    string name = 2;
+}
+
+message RegisterProducerResponse {
+    bool succeeded = 1;
+}
+
+// GetHistory
+message GetHistoryRequest {
+    string uid = 1;
+}
+
+message History {
+    repeated Transaction transactions = 1;
+}
+
+// Get Balance
+message GetBalanceRequest {
+    string uid = 1;
+}
+
+// GetChain
+message GetChainRequest { }
+
+message Idle {
+    Transaction transaction = 1;
+    string nonce = 2;
+    string prevHash = 3;
+    string resolverUID = 4;
+}
+
+message Chain {
+    repeated Idle idles = 1;
+}
+
+message Balance {
+    double balance = 1;
+}
+
+// AddTransaction
+message AddTransactionRequest {
+    string fromUID = 1;
+    string toUID = 2;
+    double amount = 3;
+}
+
+message AddTransactionResponse {
+    string timestamp = 1;
+}
+
+// GetTask
+message GetTaskRequest { }
+
+message Transaction {
+    string fromUID = 1;
+    string toUID = 2;
+    double amount = 3;
+    string timestamp = 4;
+}
+
+message Task {
+    bool exists = 1;
+    Transaction transaction = 2;
+    string prevHash = 3;
+}
+
+// ResolveNonce
+message ResolveNonceRequest {
+    string prevHash = 1;
+    string nonce = 2;
+    string resolverUID = 3;
+}
+
+message ResolveNonceResponse {
+    bool succeeded = 1;
+    double reward = 2;
+}
