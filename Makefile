@@ -1,4 +1,5 @@
 GO = go
+DEP = dep
 PROTOC = protoc
 
 SERVICE = uzucoin
@@ -10,6 +11,9 @@ PROTO_SERVER_DIR = $(SERVER_DIR)/pb
 
 proto:
 	@$(PROTOC) -I $(PROTO_DIR)/ $(PROTO_DIR)/$(SERVICE).proto --go_out=plugins=grpc:$(PROTO_SERVER_DIR)
+
+dep:
+	@cd $(SERVER_DIR) && $(DEP) ensure
 
 build: proto
 	@cd $(SERVER_DIR) && $(GO) build -o $(SERVER_DIR)/$(SERVICE)
