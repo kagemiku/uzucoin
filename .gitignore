@@ -96,6 +96,7 @@ iOSInjectionProject/
 # Protobuf
 *.pb.go
 *.pb.swift
+*.grpc.swift
 
 # exe
 uzucoin
