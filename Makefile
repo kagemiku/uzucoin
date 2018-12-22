@@ -16,10 +16,10 @@ dep:
 	@cd $(SERVER_DIR) && $(DEP) ensure
 
 build: proto
-	@cd $(SERVER_DIR) && $(GO) build -o $(SERVER_DIR)/$(SERVICE)
+	@cd $(SERVER_DIR) && $(GO) build -o $(SERVICE)
 
 run: build
-	@./$(SERVER_DIR)/$(SERVICE)
+	./$(SERVER_DIR)/$(SERVICE)
 
 clean:
 	@rm $(SERVER_DIR)/$(SERVICE)
