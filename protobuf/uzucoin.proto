@@ -7,7 +7,7 @@ service Uzucoin {
     rpc GetBalance(GetBalanceRequest) returns (Balance);
     rpc AddTransaction(AddTransactionRequest) returns (AddTransactionResponse);
     rpc GetTask(GetTaskRequest) returns (Task);
-    rpc ResolveNonce(Nonce) returns (ResolveNonceResponse);
+    rpc ResolveNonce(ResolveNonceRequest) returns (ResolveNonceResponse);
 }
 
 // GetHistory
@@ -56,7 +56,7 @@ message Task {
 }
 
 // ResolveNonce
-message Nonce {
+message ResolveNonceRequest {
     string prevHash = 1;
     string nonce = 2;
 }

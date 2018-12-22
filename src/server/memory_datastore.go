@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"errors"
 	"sync"
 
 	pb "github.com/kagemiku/uzucoin/src/server/pb"
@@ -32,6 +32,32 @@ func (datastore *uzucoinMemoryDataStore) addTask(task *pb.Transaction) {
 	defer datastore.m.Unlock()
 
 	datastore.taskQueue = append(datastore.taskQueue, task)
+}
+
+func isEqualTransaction(lhs *pb.Transaction, rhs *pb.Transaction) bool {
+	return lhs.FromUID == rhs.FromUID &&
+		lhs.ToUID == rhs.ToUID &&
+		lhs.Amount == rhs.Amount &&
+		lhs.Timestamp == rhs.Timestamp
+}
+
+func (datastore *uzucoinMemoryDataStore) addIdle(idle *Idle) error {
+	datastore.m.Lock()
+	defer datastore.m.Unlock()
+
+	if len(datastore.taskQueue) == 0 {
+		return errors.New("task queue is empty")
+	}
+
+	task := datastore.taskQueue[0]
+	if !isEqualTransaction(task, idle.transaction) {
+		return errors.New("the head of task and given idle are different")
+	}
+
+	datastore.idles = append(datastore.idles, idle)
+	datastore.taskQueue = datastore.taskQueue[1:]
+
+	return nil
 }
 
 func initUzucoinMemoryDataStore() (uzucoinDataStore, error) {

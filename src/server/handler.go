@@ -28,9 +28,8 @@ func (handler *uzucoinHandler) GetTask(ctx context.Context, in *pb.GetTaskReques
 	return handler.usecase.getTask(in)
 }
 
-func (handler *uzucoinHandler) ResolveNonce(ctx context.Context, in *pb.Nonce) (*pb.ResolveNonceResponse, error) {
-
-	return nil, nil
+func (handler *uzucoinHandler) ResolveNonce(ctx context.Context, in *pb.ResolveNonceRequest) (*pb.ResolveNonceResponse, error) {
+	return handler.usecase.resolveNonce(in)
 }
 
 func initUzucoinHandler(usecase uzucoinUsecase) (pb.UzucoinServer, error) {
