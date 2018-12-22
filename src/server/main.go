@@ -13,8 +13,9 @@ import (
 )
 
 const (
-	port = ":50051"
-	seed = "Uzuki Shimamura"
+	port      = ":50051"
+	seed      = "Uzuki Shimamura"
+	masterUID = "uzukishimamura"
 )
 
 var handler pb.UzucoinServer

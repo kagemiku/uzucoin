@@ -27,6 +27,18 @@ func (datastore *uzucoinMemoryDataStore) getTasks() []*pb.Transaction {
 	return datastore.taskQueue
 }
 
+func (datastore *uzucoinMemoryDataStore) getTransactions() []*pb.Transaction {
+	datastore.m.RLock()
+	defer datastore.m.RUnlock()
+
+	transactions := make([]*pb.Transaction, 0)
+	for _, idle := range datastore.idles {
+		transactions = append(transactions, idle.Transaction)
+	}
+
+	return transactions
+}
+
 func (datastore *uzucoinMemoryDataStore) addTask(task *pb.Transaction) {
 	datastore.m.Lock()
 	defer datastore.m.Unlock()

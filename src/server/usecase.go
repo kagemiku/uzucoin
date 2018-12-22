@@ -14,6 +14,7 @@ type uzucoinRepository interface {
 	getLatestIdle() *pb.Idle
 	getIdles() []*pb.Idle
 	addIdle(*pb.Idle) error
+	getTransactions() []*pb.Transaction
 	getHeadTask() *pb.Transaction
 	addTask(*pb.Transaction)
 }
@@ -51,7 +52,17 @@ func calcIdleHash(idle *pb.Idle) string {
 }
 
 func (usecase *uzucoinUsecaseImpl) getHistory(request *pb.GetHistoryRequest) (*pb.History, error) {
-	return nil, nil
+	uid := request.Uid
+	transactions := usecase.repository.getTransactions()
+
+	history := make([]*pb.Transaction, 0)
+	for _, transaction := range transactions {
+		if transaction.FromUID == uid || transaction.ToUID == uid {
+			history = append(history, transaction)
+		}
+	}
+
+	return &pb.History{Transactions: history}, nil
 }
 
 func (usecase *uzucoinUsecaseImpl) getBalance(request *pb.GetBalanceRequest) (*pb.Balance, error) {

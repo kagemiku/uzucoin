@@ -11,8 +11,7 @@ type uzucoinHandler struct {
 }
 
 func (handler *uzucoinHandler) GetHistory(ctx context.Context, in *pb.GetHistoryRequest) (*pb.History, error) {
-
-	return nil, nil
+	return handler.usecase.getHistory(in)
 }
 
 func (handler *uzucoinHandler) GetBalance(ctx context.Context, in *pb.GetBalanceRequest) (*pb.Balance, error) {
