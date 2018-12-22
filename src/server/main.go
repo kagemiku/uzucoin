@@ -31,6 +31,10 @@ func (s *server) ResolveNonce(ctx context.Context, in *pb.Nonce) (*pb.ResolveNon
 	return nil, nil
 }
 
+func (s *server) RegisterUser(ctx context.Context, in *pb.RegisterUserRequest) (*pb.RegisterUserResponse, error) {
+	return nil, nil
+}
+
 func (s *server) GetHistory(ctx context.Context, in *pb.GetHistoryRequest) (*pb.History, error) {
 
 	return nil, nil

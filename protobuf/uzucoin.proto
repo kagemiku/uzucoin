@@ -4,6 +4,7 @@ service Uzucoin {
     rpc AddTransaction(TransactionRequest) returns (AddTransactionResponse);
     rpc GetTask(GetTaskRequest) returns (Task);
     rpc ResolveNonce(Nonce) returns (ResolveNonceResponse);
+    rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
     rpc GetHistory(GetHistoryRequest) returns (History);
     rpc GetBalance(GetBalanceRequest) returns (Balance);
 }
@@ -44,6 +45,16 @@ message Nonce {
 message ResolveNonceResponse {
     bool succeeded = 1;
     double amount = 2;
+}
+
+// RegisterUser
+message RegisterUserRequest {
+    string uid = 1;
+    string name = 2;
+}
+
+message RegisterUserResponse {
+    bool succeeded = 1;
 }
 
 // GetHistory
