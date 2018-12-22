@@ -28,7 +28,7 @@ DEPENDENCIES:
   - SwiftGRPC
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - BoringSSL
     - gRPC-Core
     - nanopb
@@ -44,4 +44,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 94a438805be076b96142172c3c391f4304b788c0
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
