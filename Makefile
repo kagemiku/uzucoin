@@ -13,7 +13,7 @@ PROTO_CLIENT_DIR = $(CLIENT_DIR)/pb
 
 proto:
 	@$(PROTOC) -I $(PROTO_DIR)/ $(PROTO_DIR)/$(SERVICE).proto --go_out=plugins=grpc:$(PROTO_SERVER_DIR)
-	@$(PROTOC) -I $(PROTO_DIR)/ $(PROTO_DIR)/$(SERVICE).proto --swift_out=$(PROTO_CLIENT_DIR) --swiftgrpc_out=$(PROTO_CLIENT_DIR)
+	@$(PROTOC) -I $(PROTO_DIR)/ $(PROTO_DIR)/$(SERVICE).proto --swift_out=$(PROTO_CLIENT_DIR) --swiftgrpc_out=Client=true,Server=false:$(PROTO_CLIENT_DIR)
 
 dep:
 	@cd $(SERVER_DIR) && $(DEP) ensure
