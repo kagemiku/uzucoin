@@ -5,6 +5,7 @@ package uzucoin;
 service Uzucoin {
     rpc GetHistory(GetHistoryRequest) returns (History);
     rpc GetBalance(GetBalanceRequest) returns (Balance);
+    rpc GetChain(GetChainRequest) returns (Chain);
     rpc AddTransaction(AddTransactionRequest) returns (AddTransactionResponse);
     rpc GetTask(GetTaskRequest) returns (Task);
     rpc ResolveNonce(ResolveNonceRequest) returns (ResolveNonceResponse);
@@ -22,6 +23,19 @@ message History {
 // Get Balance
 message GetBalanceRequest {
     string uid = 1;
+}
+
+// GetChain
+message GetChainRequest { }
+
+message Idle {
+    Transaction transaction = 1;
+    string nonce = 2;
+    string prevHash = 3;
+}
+
+message Chain {
+    repeated Idle idles = 1;
 }
 
 message Balance {

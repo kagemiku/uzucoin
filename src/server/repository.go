@@ -3,8 +3,8 @@ package main
 import pb "github.com/kagemiku/uzucoin/src/server/pb"
 
 type uzucoinDataStore interface {
-	getIdles() []*Idle
-	addIdle(*Idle) error
+	getIdles() []*pb.Idle
+	addIdle(*pb.Idle) error
 	getTasks() []*pb.Transaction
 	addTask(*pb.Transaction)
 }
@@ -19,7 +19,7 @@ func (repository *uzucoinRepositoryImpl) getIdelsCount() int {
 	return len(idles)
 }
 
-func (repository *uzucoinRepositoryImpl) getLatestIdle() *Idle {
+func (repository *uzucoinRepositoryImpl) getLatestIdle() *pb.Idle {
 	idles := repository.datastore.getIdles()
 	if len(idles) == 0 {
 		return nil
@@ -28,7 +28,11 @@ func (repository *uzucoinRepositoryImpl) getLatestIdle() *Idle {
 	return idles[len(idles)-1]
 }
 
-func (repository *uzucoinRepositoryImpl) addIdle(idle *Idle) error {
+func (repository *uzucoinRepositoryImpl) getIdles() []*pb.Idle {
+	return repository.datastore.getIdles()
+}
+
+func (repository *uzucoinRepositoryImpl) addIdle(idle *pb.Idle) error {
 	return repository.datastore.addIdle(idle)
 }
 

@@ -11,8 +11,9 @@ import (
 
 type uzucoinRepository interface {
 	getIdelsCount() int
-	getLatestIdle() *Idle
-	addIdle(*Idle) error
+	getLatestIdle() *pb.Idle
+	getIdles() []*pb.Idle
+	addIdle(*pb.Idle) error
 	getHeadTask() *pb.Transaction
 	addTask(*pb.Transaction)
 }
@@ -20,6 +21,7 @@ type uzucoinRepository interface {
 type uzucoinUsecase interface {
 	getHistory(*pb.GetHistoryRequest) (*pb.History, error)
 	getBalance(*pb.GetBalanceRequest) (*pb.Balance, error)
+	getChain(*pb.GetChainRequest) (*pb.Chain, error)
 	addTransaction(*pb.AddTransactionRequest) (*pb.AddTransactionResponse, error)
 	getTask(*pb.GetTaskRequest) (*pb.Task, error)
 	resolveNonce(*pb.ResolveNonceRequest) (*pb.ResolveNonceResponse, error)
@@ -41,8 +43,8 @@ const (
 	asciiKi       = "6b69"
 )
 
-func calcIdleHash(idle *Idle) string {
-	payload := fmt.Sprintf(payloadFormat, idle.transaction.Timestamp, idle.nonce, idle.prevHash)
+func calcIdleHash(idle *pb.Idle) string {
+	payload := fmt.Sprintf(payloadFormat, idle.Transaction.Timestamp, idle.Nonce, idle.PrevHash)
 	hash := fmt.Sprintf(hashFormat, sha256.Sum256([]byte(payload)))
 
 	return hash
@@ -54,6 +56,12 @@ func (usecase *uzucoinUsecaseImpl) getHistory(request *pb.GetHistoryRequest) (*p
 
 func (usecase *uzucoinUsecaseImpl) getBalance(request *pb.GetBalanceRequest) (*pb.Balance, error) {
 	return nil, nil
+}
+
+func (usecase *uzucoinUsecaseImpl) getChain(request *pb.GetChainRequest) (*pb.Chain, error) {
+	idles := usecase.repository.getIdles()
+
+	return &pb.Chain{Idles: idles}, nil
 }
 
 func (usecase *uzucoinUsecaseImpl) addTransaction(request *pb.AddTransactionRequest) (*pb.AddTransactionResponse, error) {
@@ -126,10 +134,10 @@ func (usecase *uzucoinUsecaseImpl) resolveNonce(request *pb.ResolveNonceRequest)
 	}
 
 	transaction := usecase.repository.getHeadTask()
-	idle := &Idle{
-		transaction: transaction,
-		nonce:       request.Nonce,
-		prevHash:    request.PrevHash,
+	idle := &pb.Idle{
+		Transaction: transaction,
+		Nonce:       request.Nonce,
+		PrevHash:    request.PrevHash,
 	}
 	newHash := calcIdleHash(idle)
 	succeeded, amount := calcUzucoin(newHash)

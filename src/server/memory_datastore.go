@@ -8,12 +8,12 @@ import (
 )
 
 type uzucoinMemoryDataStore struct {
-	idles     []*Idle
+	idles     []*pb.Idle
 	taskQueue []*pb.Transaction
 	m         sync.RWMutex
 }
 
-func (datastore *uzucoinMemoryDataStore) getIdles() []*Idle {
+func (datastore *uzucoinMemoryDataStore) getIdles() []*pb.Idle {
 	datastore.m.RLock()
 	defer datastore.m.RUnlock()
 
@@ -41,7 +41,7 @@ func isEqualTransaction(lhs *pb.Transaction, rhs *pb.Transaction) bool {
 		lhs.Timestamp == rhs.Timestamp
 }
 
-func (datastore *uzucoinMemoryDataStore) addIdle(idle *Idle) error {
+func (datastore *uzucoinMemoryDataStore) addIdle(idle *pb.Idle) error {
 	datastore.m.Lock()
 	defer datastore.m.Unlock()
 
@@ -50,7 +50,7 @@ func (datastore *uzucoinMemoryDataStore) addIdle(idle *Idle) error {
 	}
 
 	task := datastore.taskQueue[0]
-	if !isEqualTransaction(task, idle.transaction) {
+	if !isEqualTransaction(task, idle.Transaction) {
 		return errors.New("the head of task and given idle are different")
 	}
 
@@ -62,7 +62,7 @@ func (datastore *uzucoinMemoryDataStore) addIdle(idle *Idle) error {
 
 func initUzucoinMemoryDataStore() (uzucoinDataStore, error) {
 	datastore := &uzucoinMemoryDataStore{
-		idles:     make([]*Idle, 0),
+		idles:     make([]*pb.Idle, 0),
 		taskQueue: make([]*pb.Transaction, 0),
 		m:         sync.RWMutex{},
 	}

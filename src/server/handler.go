@@ -20,6 +20,10 @@ func (handler *uzucoinHandler) GetBalance(ctx context.Context, in *pb.GetBalance
 	return nil, nil
 }
 
+func (handler *uzucoinHandler) GetChain(ctx context.Context, in *pb.GetChainRequest) (*pb.Chain, error) {
+	return handler.usecase.getChain(in)
+}
+
 func (handler *uzucoinHandler) AddTransaction(ctx context.Context, in *pb.AddTransactionRequest) (*pb.AddTransactionResponse, error) {
 	return handler.usecase.addTransaction(in)
 }
