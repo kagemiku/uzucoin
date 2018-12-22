@@ -32,6 +32,7 @@ message Idle {
     Transaction transaction = 1;
     string nonce = 2;
     string prevHash = 3;
+    string resolverUID = 4;
 }
 
 message Chain {
@@ -73,9 +74,10 @@ message Task {
 message ResolveNonceRequest {
     string prevHash = 1;
     string nonce = 2;
+    string resolverUID = 3;
 }
 
 message ResolveNonceResponse {
     bool succeeded = 1;
-    double amount = 2;
+    double reward = 2;
 }

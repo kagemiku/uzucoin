@@ -106,19 +106,19 @@ func (usecase *uzucoinUsecaseImpl) getTask(request *pb.GetTaskRequest) (*pb.Task
 
 func calcUzucoin(hash string) (bool, float64) {
 	succeeded := false
-	amount := 0.0
+	reward := 0.0
 	if strings.Contains(hash, asciiUzuki) {
 		succeeded = true
-		amount = 24.0
+		reward = 24.0
 	} else if strings.Contains(hash, asciiUzu) || strings.Contains(hash, asciiZuki) {
 		succeeded = true
-		amount = 4.0
+		reward = 4.0
 	} else if strings.Contains(hash, asciiU) || strings.Contains(hash, asciiZu) || strings.Contains(hash, asciiKi) {
 		succeeded = true
-		amount = 1.0
+		reward = 1.0
 	}
 
-	return succeeded, amount
+	return succeeded, reward
 }
 
 func (usecase *uzucoinUsecaseImpl) resolveNonce(request *pb.ResolveNonceRequest) (*pb.ResolveNonceResponse, error) {
@@ -130,7 +130,7 @@ func (usecase *uzucoinUsecaseImpl) resolveNonce(request *pb.ResolveNonceRequest)
 	}
 
 	if request.PrevHash != prevHash {
-		return &pb.ResolveNonceResponse{Succeeded: false, Amount: 0.0}, nil
+		return &pb.ResolveNonceResponse{Succeeded: false, Reward: 0.0}, nil
 	}
 
 	transaction := usecase.repository.getHeadTask()
@@ -138,18 +138,19 @@ func (usecase *uzucoinUsecaseImpl) resolveNonce(request *pb.ResolveNonceRequest)
 		Transaction: transaction,
 		Nonce:       request.Nonce,
 		PrevHash:    request.PrevHash,
+		ResolverUID: request.ResolverUID,
 	}
 	newHash := calcIdleHash(idle)
-	succeeded, amount := calcUzucoin(newHash)
+	succeeded, reward := calcUzucoin(newHash)
 	if !succeeded {
-		return &pb.ResolveNonceResponse{Succeeded: false, Amount: 0.0}, nil
+		return &pb.ResolveNonceResponse{Succeeded: false, Reward: 0.0}, nil
 	}
 
 	if err := usecase.repository.addIdle(idle); err != nil {
-		return &pb.ResolveNonceResponse{Succeeded: false, Amount: 0.0}, err
+		return &pb.ResolveNonceResponse{Succeeded: false, Reward: 0.0}, err
 	}
 
-	return &pb.ResolveNonceResponse{Succeeded: true, Amount: amount}, nil
+	return &pb.ResolveNonceResponse{Succeeded: true, Reward: reward}, nil
 }
 
 func initUzucoinUsecase(initialHash string, repository uzucoinRepository) (uzucoinUsecase, error) {
