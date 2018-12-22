@@ -15,8 +15,6 @@ const (
 	port = ":50051"
 )
 
-type server struct{}
-
 func (s *server) AddTransaction(ctx context.Context, in *pb.TransactionRequest) (*pb.AddTransactionResponse, error) {
 	return nil, nil
 }
