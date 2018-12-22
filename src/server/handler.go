@@ -19,8 +19,7 @@ func (handler *uzucoinHandler) GetHistory(ctx context.Context, in *pb.GetHistory
 }
 
 func (handler *uzucoinHandler) GetBalance(ctx context.Context, in *pb.GetBalanceRequest) (*pb.Balance, error) {
-
-	return nil, nil
+	return handler.usecase.getBalance(in)
 }
 
 func (handler *uzucoinHandler) GetChain(ctx context.Context, in *pb.GetChainRequest) (*pb.Chain, error) {
