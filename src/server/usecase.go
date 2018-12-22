@@ -8,7 +8,6 @@ type uzucoinRepository interface {
 }
 
 type uzucoinUsecase interface {
-	registerUser(*pb.RegisterUserRequest) (*pb.RegisterUserResponse, error)
 	getHistory(*pb.GetHistoryRequest) (*pb.History, error)
 	getBalance(*pb.GetBalanceRequest) (*pb.Balance, error)
 	addTransaction(*pb.TransactionRequest) (*pb.AddTransactionResponse, error)
@@ -18,10 +17,6 @@ type uzucoinUsecase interface {
 
 type uzucoinUsecaseImpl struct {
 	repository uzucoinRepository
-}
-
-func (usecase *uzucoinUsecaseImpl) registerUser(request *pb.RegisterUserRequest) (*pb.RegisterUserResponse, error) {
-	return nil, nil
 }
 
 func (usecase *uzucoinUsecaseImpl) addTransaction(request *pb.TransactionRequest) (*pb.AddTransactionResponse, error) {
