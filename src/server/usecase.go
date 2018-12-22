@@ -22,17 +22,14 @@ type uzucoinUsecase interface {
 }
 
 type uzucoinUsecaseImpl struct {
-	repository uzucoinRepository
+	initialHash string
+	repository  uzucoinRepository
 }
-
-const seed = "Uzuki Shimamura"
 
 const (
 	payloadFormat = "%s%s%s"
 	hashFormat    = "%x"
 )
-
-var initialHash = fmt.Sprintf(hashFormat, sha256.Sum256([]byte(seed)))
 
 func calcIdleHash(idle *Idle) string {
 	payload := fmt.Sprintf(payloadFormat, idle.transaction.Timestamp, idle.nonce, idle.prevHash)
@@ -66,7 +63,7 @@ func (usecase *uzucoinUsecaseImpl) getTask(request *pb.GetTaskRequest) (*pb.Task
 		task = &pb.Task{
 			Exists:      true,
 			Transaction: transaction,
-			PrevHash:    initialHash,
+			PrevHash:    usecase.initialHash,
 		}
 	} else {
 		prevHash := calcIdleHash(usecase.repository.getLatestIdle())
@@ -84,8 +81,11 @@ func (usecase *uzucoinUsecaseImpl) resolveNonce(nonce *pb.Nonce) (*pb.ResolveNon
 	return nil, nil
 }
 
-func initUzucoinUsecase(repository uzucoinRepository) (uzucoinUsecase, error) {
-	usecase := &uzucoinUsecaseImpl{repository: repository}
+func initUzucoinUsecase(initialHash string, repository uzucoinRepository) (uzucoinUsecase, error) {
+	usecase := &uzucoinUsecaseImpl{
+		initialHash: initialHash,
+		repository:  repository,
+	}
 
 	return usecase, nil
 }

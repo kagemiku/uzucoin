@@ -1,6 +1,8 @@
 package main
 
 import (
+	"crypto/sha256"
+	"fmt"
 	"log"
 	"net"
 
@@ -12,6 +14,7 @@ import (
 
 const (
 	port = ":50051"
+	seed = "Uzuki Shimamura"
 )
 
 var handler pb.UzucoinServer
@@ -27,7 +30,8 @@ func init() {
 		log.Fatalf("failed to init repository: %v\n", err)
 	}
 
-	usecase, err := initUzucoinUsecase(repository)
+	initialHash := fmt.Sprintf(hashFormat, sha256.Sum256([]byte(seed)))
+	usecase, err := initUzucoinUsecase(initialHash, repository)
 	if err != nil {
 		log.Fatalf("failed to init repository: %v\n", err)
 	}
