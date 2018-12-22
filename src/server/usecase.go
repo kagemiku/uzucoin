@@ -1,10 +1,16 @@
 package main
 
 import (
+	"crypto/sha256"
+	"fmt"
+
 	pb "github.com/kagemiku/uzucoin/src/server/pb"
 )
 
 type uzucoinRepository interface {
+	getIdelsCount() int
+	getLatestIdle() *Idle
+	getHeadTask() *pb.Transaction
 }
 
 type uzucoinUsecase interface {
@@ -17,6 +23,22 @@ type uzucoinUsecase interface {
 
 type uzucoinUsecaseImpl struct {
 	repository uzucoinRepository
+}
+
+const seed = "Uzuki Shimamura"
+
+const (
+	payloadFormat = "%s%s%s"
+	hashFormat    = "%x"
+)
+
+var initialHash = fmt.Sprintf(hashFormat, sha256.Sum256([]byte(seed)))
+
+func calcIdleHash(idle *Idle) string {
+	payload := fmt.Sprintf(payloadFormat, idle.transaction.Timestamp, idle.nonce, idle.prevHash)
+	hash := fmt.Sprintf(hashFormat, sha256.Sum256([]byte(payload)))
+
+	return hash
 }
 
 func (usecase *uzucoinUsecaseImpl) addTransaction(request *pb.TransactionRequest) (*pb.AddTransactionResponse, error) {
@@ -32,7 +54,30 @@ func (usecase *uzucoinUsecaseImpl) getBalance(request *pb.GetBalanceRequest) (*p
 }
 
 func (usecase *uzucoinUsecaseImpl) getTask(request *pb.GetTaskRequest) (*pb.Task, error) {
-	return nil, nil
+	var task *pb.Task
+	transaction := usecase.repository.getHeadTask()
+	if transaction == nil {
+		task = &pb.Task{
+			Exists:      false,
+			Transaction: nil,
+			PrevHash:    "",
+		}
+	} else if idlesCount := usecase.repository.getIdelsCount(); idlesCount == 0 {
+		task = &pb.Task{
+			Exists:      true,
+			Transaction: transaction,
+			PrevHash:    initialHash,
+		}
+	} else {
+		prevHash := calcIdleHash(usecase.repository.getLatestIdle())
+		task = &pb.Task{
+			Exists:      true,
+			Transaction: transaction,
+			PrevHash:    prevHash,
+		}
+	}
+
+	return task, nil
 }
 
 func (usecase *uzucoinUsecaseImpl) resolveNonce(nonce *pb.Nonce) (*pb.ResolveNonceResponse, error) {

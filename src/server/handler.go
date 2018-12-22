@@ -25,8 +25,7 @@ func (handler *uzucoinHandler) AddTransaction(ctx context.Context, in *pb.Transa
 }
 
 func (handler *uzucoinHandler) GetTask(ctx context.Context, in *pb.GetTaskRequest) (*pb.Task, error) {
-
-	return nil, nil
+	return handler.usecase.getTask(in)
 }
 
 func (handler *uzucoinHandler) ResolveNonce(ctx context.Context, in *pb.Nonce) (*pb.ResolveNonceResponse, error) {
