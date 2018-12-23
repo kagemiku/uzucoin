@@ -59,7 +59,9 @@ extension RegistrationViewController {
         let response = try? ProtobufClient.shared.client.registerProducer(request)
 
         if let res = response, res.succeeded {
-            print(res.succeeded)
+            let vc = RegistrationFinishViewController()
+            vc.modalPresentationStyle = .overCurrentContext
+            self.present(vc, animated: true)
         } else {
             print("error")
         }
