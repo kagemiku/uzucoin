@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RegistrationViewControllerDelegate: class {
+    func dismissRegistration()
+}
+
 class RegistrationViewController: UIViewController {
 
     @IBOutlet weak var producerIDLabel: UILabel! {
@@ -59,12 +63,25 @@ extension RegistrationViewController {
         let response = try? ProtobufClient.shared.client.registerProducer(request)
 
         if let res = response, res.succeeded {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(true, forKey: "registered")
+            userDefaults.synchronize()
+
             let vc = RegistrationFinishViewController()
+            vc.registrationDelegate = self
             vc.modalPresentationStyle = .overCurrentContext
             self.present(vc, animated: true)
         } else {
             print("error")
         }
+    }
+
+}
+
+extension RegistrationViewController: RegistrationViewControllerDelegate {
+
+    func dismissRegistration() {
+        self.dismiss(animated: true)
     }
 
 }

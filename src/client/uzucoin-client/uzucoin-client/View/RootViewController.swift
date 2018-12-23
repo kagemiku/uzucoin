@@ -22,8 +22,11 @@ class RootViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        let registrationVC = RegistrationViewController()
-        //self.present(registrationVC, animated: true)
+        let userDefaults = UserDefaults.standard
+        if let registered = userDefaults.object(forKey: "registered") as? Bool, !registered {
+            let registrationVC = RegistrationViewController()
+            self.present(registrationVC, animated: true)
+        }
     }
 
 }

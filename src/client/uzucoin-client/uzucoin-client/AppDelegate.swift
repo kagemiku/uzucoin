@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         gRPC.initialize()
 
+        let userDefaults = UserDefaults.standard
+        userDefaults.register(defaults: ["registered": false])
+
         let vc = RootViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = vc

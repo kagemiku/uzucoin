@@ -10,6 +10,8 @@ import UIKit
 
 class RegistrationFinishViewController: UIViewController {
 
+    var registrationDelegate: RegistrationViewControllerDelegate? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,10 @@ class RegistrationFinishViewController: UIViewController {
 extension RegistrationFinishViewController {
 
     @IBAction func didTapHomeButton(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.dismiss(animated: true) { [weak self] in
+            guard let delegate = self?.registrationDelegate else { return }
+            delegate.dismissRegistration()
+        }
     }
 
 }
