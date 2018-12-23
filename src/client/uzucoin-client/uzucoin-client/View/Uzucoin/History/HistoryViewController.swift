@@ -15,6 +15,7 @@ class HistoryViewController: UIViewController {
             self.historyTableView.dataSource = self
             self.historyTableView.delegate = self
             self.historyTableView.register(UINib(nibName: "HistoryCellView", bundle: nil), forCellReuseIdentifier: HistoryCellView.reuseIdentifier)
+            self.historyTableView.separatorStyle = .none
         }
     }
 
