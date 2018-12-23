@@ -12,6 +12,13 @@ class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let registrationVC = RegistrationViewController()
+        let nvc = UINavigationController(rootViewController: registrationVC)
+
+        self.addChild(nvc)
+        self.view.addSubview(nvc.view)
+        nvc.didMove(toParent: self)
     }
 
 }

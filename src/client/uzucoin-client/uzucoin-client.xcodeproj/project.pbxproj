@@ -17,6 +17,9 @@
 		E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */; };
 		E9D7C31D21CF2F3D00DECE6D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C31B21CF2F3D00DECE6D /* RootViewController.swift */; };
 		E9D7C31E21CF2F3D00DECE6D /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D7C31C21CF2F3D00DECE6D /* RootViewController.xib */; };
+		E9D7C32321CF31D000DECE6D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C32121CF31D000DECE6D /* RegistrationViewController.swift */; };
+		E9D7C32421CF31D000DECE6D /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D7C32221CF31D000DECE6D /* RegistrationViewController.xib */; };
+		E9D7C32621CF4B3800DECE6D /* ProtobufClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C32521CF4B3800DECE6D /* ProtobufClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.grpc.swift; path = ../../pb/uzucoin.grpc.swift; sourceTree = "<group>"; };
 		E9D7C31B21CF2F3D00DECE6D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		E9D7C31C21CF2F3D00DECE6D /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		E9D7C32121CF31D000DECE6D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		E9D7C32221CF31D000DECE6D /* RegistrationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		E9D7C32521CF4B3800DECE6D /* ProtobufClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufClient.swift; sourceTree = "<group>"; };
 		FEAE5911040FFC193CE6D721 /* Pods-uzucoin-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uzucoin-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +128,7 @@
 		E9D7C31421CF2E6100DECE6D /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E9D7C32521CF4B3800DECE6D /* ProtobufClient.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -129,6 +136,8 @@
 		E9D7C31521CF2E9300DECE6D /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				E9D7C32121CF31D000DECE6D /* RegistrationViewController.swift */,
+				E9D7C32221CF31D000DECE6D /* RegistrationViewController.xib */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -224,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D7C32421CF31D000DECE6D /* RegistrationViewController.xib in Resources */,
 				1081146621CE819400D71BC2 /* LaunchScreen.storyboard in Resources */,
 				1081146321CE819400D71BC2 /* Assets.xcassets in Resources */,
 				E9D7C31E21CF2F3D00DECE6D /* RootViewController.xib in Resources */,
@@ -285,10 +295,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D7C32321CF31D000DECE6D /* RegistrationViewController.swift in Sources */,
 				E9D7C31D21CF2F3D00DECE6D /* RootViewController.swift in Sources */,
 				E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */,
 				1081145E21CE819100D71BC2 /* ViewController.swift in Sources */,
 				1081145C21CE819100D71BC2 /* AppDelegate.swift in Sources */,
+				E9D7C32621CF4B3800DECE6D /* ProtobufClient.swift in Sources */,
 				E9D7C30F21CF1ACD00DECE6D /* uzucoin.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
