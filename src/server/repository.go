@@ -23,7 +23,7 @@ type uzucoinRepositoryImpl struct {
 func (repository *uzucoinRepositoryImpl) registerProducer(producer *Producer) error {
 	producers := repository.datastore.getProducers()
 	for _, p := range producers {
-		if *producer == *p {
+		if producer.uid == p.uid {
 			return errors.New("Producer is already registered")
 		}
 	}
