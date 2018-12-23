@@ -18,7 +18,7 @@ class UzucoinTabBarViewController: UITabBarController {
     }()
 
     private lazy var historyVC: UINavigationController = {
-        let vc = UIViewController()
+        let vc = HistoryViewController()
         let nvc = UINavigationController(rootViewController: vc)
         nvc.title = "履歴"
         return nvc

@@ -10,6 +10,8 @@ import UIKit
 
 class HistoryCellView: UITableViewCell {
 
+    static let reuseIdentifier = "HistoryCellView"
+
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!

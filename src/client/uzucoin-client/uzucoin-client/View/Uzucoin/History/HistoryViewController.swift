@@ -14,36 +14,55 @@ class HistoryViewController: UIViewController {
         didSet {
             self.historyTableView.dataSource = self
             self.historyTableView.delegate = self
+            self.historyTableView.register(UINib(nibName: "HistoryCellView", bundle: nil), forCellReuseIdentifier: HistoryCellView.reuseIdentifier)
+        }
+    }
+
+    private var data: [Uzucoin_Transaction] = [] {
+        didSet {
+            self.historyTableView.reloadData()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        self.getHistory()
     }
-    */
+
+    private func getHistory() {
+        guard let uid = UserDefaults.standard.object(forKey: DefaultsKeys.producerID.rawValue) as? String else { return }
+        var request = Uzucoin_GetHistoryRequest()
+        request.uid = uid
+        let response: Uzucoin_History
+        do {
+            response = try ProtobufClient.shared.client.getHistory(request)
+        } catch (let error) {
+            print(error)
+            return
+        }
+
+        self.data = response.transactions.reversed()
+    }
 
 }
 
 extension HistoryViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryCellView.reuseIdentifier, for: indexPath) as! HistoryCellView
+        let cellData = self.data[indexPath.row]
+        cell.configure(dateString: cellData.timestamp, name: cellData.toUid, amount: cellData.amount)
+
+        return cell
     }
 
 }
