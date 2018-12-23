@@ -15,6 +15,8 @@
 		8EF64B55094A23D2221BC8DC /* Pods_uzucoin_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8312107C59688B5838AE043E /* Pods_uzucoin_client.framework */; };
 		E9D7C30F21CF1ACD00DECE6D /* uzucoin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */; };
 		E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */; };
+		E9D7C31D21CF2F3D00DECE6D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C31B21CF2F3D00DECE6D /* RootViewController.swift */; };
+		E9D7C31E21CF2F3D00DECE6D /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D7C31C21CF2F3D00DECE6D /* RootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		84361852D65F6E5E6B8BD9AC /* Pods-uzucoin-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uzucoin-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client.debug.xcconfig"; sourceTree = "<group>"; };
 		E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.pb.swift; path = ../../pb/uzucoin.pb.swift; sourceTree = "<group>"; };
 		E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.grpc.swift; path = ../../pb/uzucoin.grpc.swift; sourceTree = "<group>"; };
+		E9D7C31B21CF2F3D00DECE6D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E9D7C31C21CF2F3D00DECE6D /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		FEAE5911040FFC193CE6D721 /* Pods-uzucoin-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uzucoin-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +113,8 @@
 			children = (
 				E9D7C31521CF2E9300DECE6D /* Registration */,
 				E9D7C31621CF2EA900DECE6D /* Uzucoin */,
+				E9D7C31B21CF2F3D00DECE6D /* RootViewController.swift */,
+				E9D7C31C21CF2F3D00DECE6D /* RootViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 			files = (
 				1081146621CE819400D71BC2 /* LaunchScreen.storyboard in Resources */,
 				1081146321CE819400D71BC2 /* Assets.xcassets in Resources */,
+				E9D7C31E21CF2F3D00DECE6D /* RootViewController.xib in Resources */,
 				1081146121CE819100D71BC2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D7C31D21CF2F3D00DECE6D /* RootViewController.swift in Sources */,
 				E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */,
 				1081145E21CE819100D71BC2 /* ViewController.swift in Sources */,
 				1081145C21CE819100D71BC2 /* AppDelegate.swift in Sources */,
