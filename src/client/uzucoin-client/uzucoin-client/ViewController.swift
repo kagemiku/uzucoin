@@ -14,12 +14,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        /*
         let client = Uzucoin_UzucoinServiceClient.init(address: "127.0.0.1:50051", secure: false)
         var request = Uzucoin_RegisterProducerRequest()
         request.uid = "kagemiku"
         request.name = "kage"
         let response = try? client.registerProducer(request)
         print("Response: \(response!.succeeded)")
+         */
     }
 
 

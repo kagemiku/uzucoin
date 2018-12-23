@@ -66,6 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				E9D7C30C21CF1AB300DECE6D /* Protobuf */,
+				E9D7C31421CF2E6100DECE6D /* Util */,
+				E9D7C31321CF2E5400DECE6D /* View */,
 				1081145B21CE819100D71BC2 /* AppDelegate.swift */,
 				1081145D21CE819100D71BC2 /* ViewController.swift */,
 				1081145F21CE819100D71BC2 /* Main.storyboard */,
@@ -100,6 +102,60 @@
 				E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */,
 			);
 			name = Protobuf;
+			sourceTree = "<group>";
+		};
+		E9D7C31321CF2E5400DECE6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9D7C31521CF2E9300DECE6D /* Registration */,
+				E9D7C31621CF2EA900DECE6D /* Uzucoin */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9D7C31421CF2E6100DECE6D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E9D7C31521CF2E9300DECE6D /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		E9D7C31621CF2EA900DECE6D /* Uzucoin */ = {
+			isa = PBXGroup;
+			children = (
+				E9D7C31721CF2EBD00DECE6D /* Sending */,
+				E9D7C31821CF2EC700DECE6D /* History */,
+				E9D7C31921CF2ECD00DECE6D /* Smining */,
+			);
+			path = Uzucoin;
+			sourceTree = "<group>";
+		};
+		E9D7C31721CF2EBD00DECE6D /* Sending */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sending;
+			sourceTree = "<group>";
+		};
+		E9D7C31821CF2EC700DECE6D /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		E9D7C31921CF2ECD00DECE6D /* Smining */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Smining;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
