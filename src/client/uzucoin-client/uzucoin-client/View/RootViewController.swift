@@ -23,7 +23,7 @@ class RootViewController: UIViewController {
         super.viewDidAppear(animated)
 
         let userDefaults = UserDefaults.standard
-        if let registered = userDefaults.object(forKey: "registered") as? Bool, !registered {
+        if let registered = userDefaults.object(forKey: DefaultsKeys.registered.rawValue) as? Bool, !registered {
             let registrationVC = RegistrationViewController()
             self.present(registrationVC, animated: true)
         }

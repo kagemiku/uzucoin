@@ -24,6 +24,9 @@
 		E9D7C32A21CF4EAB00DECE6D /* RegistrationFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D7C32821CF4EAB00DECE6D /* RegistrationFinishViewController.xib */; };
 		E9D7C32D21CF548900DECE6D /* UzucoinTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C32B21CF548900DECE6D /* UzucoinTabBarViewController.swift */; };
 		E9D7C32E21CF548900DECE6D /* UzucoinTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D7C32C21CF548900DECE6D /* UzucoinTabBarViewController.xib */; };
+		E9D7C33221CF5B1300DECE6D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C33021CF5B1300DECE6D /* WalletViewController.swift */; };
+		E9D7C33321CF5B1300DECE6D /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D7C33121CF5B1300DECE6D /* WalletViewController.xib */; };
+		E9D7C33521CF5CB500DECE6D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C33421CF5CB500DECE6D /* Defaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		E9D7C32821CF4EAB00DECE6D /* RegistrationFinishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationFinishViewController.xib; sourceTree = "<group>"; };
 		E9D7C32B21CF548900DECE6D /* UzucoinTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UzucoinTabBarViewController.swift; sourceTree = "<group>"; };
 		E9D7C32C21CF548900DECE6D /* UzucoinTabBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UzucoinTabBarViewController.xib; sourceTree = "<group>"; };
+		E9D7C33021CF5B1300DECE6D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		E9D7C33121CF5B1300DECE6D /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
+		E9D7C33421CF5CB500DECE6D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		FEAE5911040FFC193CE6D721 /* Pods-uzucoin-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uzucoin-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				E9D7C32521CF4B3800DECE6D /* ProtobufClient.swift */,
+				E9D7C33421CF5CB500DECE6D /* Defaults.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 		E9D7C31621CF2EA900DECE6D /* Uzucoin */ = {
 			isa = PBXGroup;
 			children = (
+				E9D7C32F21CF5AF600DECE6D /* Wallet */,
 				E9D7C31721CF2EBD00DECE6D /* Sending */,
 				E9D7C31821CF2EC700DECE6D /* History */,
 				E9D7C31921CF2ECD00DECE6D /* Smining */,
@@ -183,6 +191,15 @@
 			children = (
 			);
 			path = Smining;
+			sourceTree = "<group>";
+		};
+		E9D7C32F21CF5AF600DECE6D /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				E9D7C33021CF5B1300DECE6D /* WalletViewController.swift */,
+				E9D7C33121CF5B1300DECE6D /* WalletViewController.xib */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D7C32A21CF4EAB00DECE6D /* RegistrationFinishViewController.xib in Resources */,
+				E9D7C33321CF5B1300DECE6D /* WalletViewController.xib in Resources */,
 				E9D7C32421CF31D000DECE6D /* RegistrationViewController.xib in Resources */,
 				1081146621CE819400D71BC2 /* LaunchScreen.storyboard in Resources */,
 				1081146321CE819400D71BC2 /* Assets.xcassets in Resources */,
@@ -318,6 +336,8 @@
 				1081145C21CE819100D71BC2 /* AppDelegate.swift in Sources */,
 				E9D7C32621CF4B3800DECE6D /* ProtobufClient.swift in Sources */,
 				E9D7C30F21CF1ACD00DECE6D /* uzucoin.pb.swift in Sources */,
+				E9D7C33221CF5B1300DECE6D /* WalletViewController.swift in Sources */,
+				E9D7C33521CF5CB500DECE6D /* Defaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

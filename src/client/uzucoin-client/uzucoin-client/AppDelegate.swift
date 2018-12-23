@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         gRPC.initialize()
 
         let userDefaults = UserDefaults.standard
-        userDefaults.register(defaults: ["registered": false])
+        userDefaults.register(defaults: [DefaultsKeys.registered.rawValue: false])
 
         let vc = RootViewController()
         window = UIWindow(frame: UIScreen.main.bounds)

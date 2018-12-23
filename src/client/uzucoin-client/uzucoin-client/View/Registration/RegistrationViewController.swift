@@ -42,7 +42,7 @@ class RegistrationViewController: UIViewController {
 
     private func saveProducerID() {
         let userDefaults = UserDefaults.standard
-        userDefaults.set(self.producerID, forKey: "producer_id")
+        userDefaults.set(self.producerID, forKey: DefaultsKeys.producerID.rawValue)
         userDefaults.synchronize()
     }
 }
@@ -64,8 +64,9 @@ extension RegistrationViewController {
 
         if let res = response, res.succeeded {
             let userDefaults = UserDefaults.standard
-            userDefaults.set(true, forKey: "registered")
+            userDefaults.set(true, forKey: DefaultsKeys.registered.rawValue)
             userDefaults.synchronize()
+            self.saveProducerID()
 
             let vc = RegistrationFinishViewController()
             vc.registrationDelegate = self
