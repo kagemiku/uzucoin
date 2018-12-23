@@ -19,7 +19,7 @@ class WalletViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = "うづきWallet"
     }
 
     override func viewWillAppear(_ animated: Bool) {

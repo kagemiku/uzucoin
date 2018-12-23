@@ -27,6 +27,8 @@ class HistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationItem.title = "履歴"
     }
 
     override func viewWillAppear(_ animated: Bool) {

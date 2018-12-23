@@ -15,6 +15,8 @@ class SendingTopViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationItem.title = "送金"
     }
 
 }
