@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1081145C21CE819100D71BC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081145B21CE819100D71BC2 /* AppDelegate.swift */; };
+		1081145E21CE819100D71BC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081145D21CE819100D71BC2 /* ViewController.swift */; };
+		1081146121CE819100D71BC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1081145F21CE819100D71BC2 /* Main.storyboard */; };
+		1081146321CE819400D71BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1081146221CE819400D71BC2 /* Assets.xcassets */; };
+		1081146621CE819400D71BC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1081146421CE819400D71BC2 /* LaunchScreen.storyboard */; };
+		8EF64B55094A23D2221BC8DC /* Pods_uzucoin_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8312107C59688B5838AE043E /* Pods_uzucoin_client.framework */; };
+		E9D7C30F21CF1ACD00DECE6D /* uzucoin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */; };
+		E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1081145821CE819100D71BC2 /* uzucoin-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "uzucoin-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1081145B21CE819100D71BC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1081145D21CE819100D71BC2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1081146021CE819100D71BC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1081146221CE819400D71BC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1081146521CE819400D71BC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1081146721CE819400D71BC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8312107C59688B5838AE043E /* Pods_uzucoin_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uzucoin_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84361852D65F6E5E6B8BD9AC /* Pods-uzucoin-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uzucoin-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client.debug.xcconfig"; sourceTree = "<group>"; };
+		E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.pb.swift; path = ../../pb/uzucoin.pb.swift; sourceTree = "<group>"; };
+		E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.grpc.swift; path = ../../pb/uzucoin.grpc.swift; sourceTree = "<group>"; };
+		FEAE5911040FFC193CE6D721 /* Pods-uzucoin-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uzucoin-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1081145521CE819100D71BC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EF64B55094A23D2221BC8DC /* Pods_uzucoin_client.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1081144F21CE819100D71BC2 = {
+			isa = PBXGroup;
+			children = (
+				1081145A21CE819100D71BC2 /* uzucoin-client */,
+				1081145921CE819100D71BC2 /* Products */,
+				9C9FECE8DB5C173833DC779A /* Pods */,
+				1344EC432FCD904F0A716282 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1081145921CE819100D71BC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1081145821CE819100D71BC2 /* uzucoin-client.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1081145A21CE819100D71BC2 /* uzucoin-client */ = {
+			isa = PBXGroup;
+			children = (
+				E9D7C30C21CF1AB300DECE6D /* Protobuf */,
+				1081145B21CE819100D71BC2 /* AppDelegate.swift */,
+				1081145D21CE819100D71BC2 /* ViewController.swift */,
+				1081145F21CE819100D71BC2 /* Main.storyboard */,
+				1081146221CE819400D71BC2 /* Assets.xcassets */,
+				1081146421CE819400D71BC2 /* LaunchScreen.storyboard */,
+				1081146721CE819400D71BC2 /* Info.plist */,
+			);
+			path = "uzucoin-client";
+			sourceTree = "<group>";
+		};
+		1344EC432FCD904F0A716282 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8312107C59688B5838AE043E /* Pods_uzucoin_client.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C9FECE8DB5C173833DC779A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84361852D65F6E5E6B8BD9AC /* Pods-uzucoin-client.debug.xcconfig */,
+				FEAE5911040FFC193CE6D721 /* Pods-uzucoin-client.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E9D7C30C21CF1AB300DECE6D /* Protobuf */ = {
+			isa = PBXGroup;
+			children = (
+				E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */,
+				E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */,
+			);
+			name = Protobuf;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1081145721CE819100D71BC2 /* uzucoin-client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1081146A21CE819400D71BC2 /* Build configuration list for PBXNativeTarget "uzucoin-client" */;
+			buildPhases = (
+				4148CCB5D76BF0E10CBAAFD3 /* [CP] Check Pods Manifest.lock */,
+				1081145421CE819100D71BC2 /* Sources */,
+				1081145521CE819100D71BC2 /* Frameworks */,
+				1081145621CE819100D71BC2 /* Resources */,
+				EF3FA846568C57CC9130C3C0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "uzucoin-client";
+			productName = "uzucoin-client";
+			productReference = 1081145821CE819100D71BC2 /* uzucoin-client.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1081145021CE819100D71BC2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = kagemiku;
+				TargetAttributes = {
+					1081145721CE819100D71BC2 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 1081145321CE819100D71BC2 /* Build configuration list for PBXProject "uzucoin-client" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1081144F21CE819100D71BC2;
+			productRefGroup = 1081145921CE819100D71BC2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1081145721CE819100D71BC2 /* uzucoin-client */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1081145621CE819100D71BC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1081146621CE819400D71BC2 /* LaunchScreen.storyboard in Resources */,
+				1081146321CE819400D71BC2 /* Assets.xcassets in Resources */,
+				1081146121CE819100D71BC2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4148CCB5D76BF0E10CBAAFD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-uzucoin-client-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF3FA846568C57CC9130C3C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGRPC/SwiftGRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1081145421CE819100D71BC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */,
+				1081145E21CE819100D71BC2 /* ViewController.swift in Sources */,
+				1081145C21CE819100D71BC2 /* AppDelegate.swift in Sources */,
+				E9D7C30F21CF1ACD00DECE6D /* uzucoin.pb.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1081145F21CE819100D71BC2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1081146021CE819100D71BC2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1081146421CE819400D71BC2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1081146521CE819400D71BC2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1081146821CE819400D71BC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1081146921CE819400D71BC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1081146B21CE819400D71BC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84361852D65F6E5E6B8BD9AC /* Pods-uzucoin-client.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P37ZVM8N8;
+				INFOPLIST_FILE = "uzucoin-client/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kagemiku.uzucoin-client";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1081146C21CE819400D71BC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEAE5911040FFC193CE6D721 /* Pods-uzucoin-client.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P37ZVM8N8;
+				INFOPLIST_FILE = "uzucoin-client/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kagemiku.uzucoin-client";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1081145321CE819100D71BC2 /* Build configuration list for PBXProject "uzucoin-client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1081146821CE819400D71BC2 /* Debug */,
+				1081146921CE819400D71BC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1081146A21CE819400D71BC2 /* Build configuration list for PBXNativeTarget "uzucoin-client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1081146B21CE819400D71BC2 /* Debug */,
+				1081146C21CE819400D71BC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1081145021CE819100D71BC2 /* Project object */;
+}
