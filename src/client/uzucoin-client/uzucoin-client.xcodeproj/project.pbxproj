@@ -15,6 +15,7 @@
 		8EF64B55094A23D2221BC8DC /* Pods_uzucoin_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8312107C59688B5838AE043E /* Pods_uzucoin_client.framework */; };
 		E9AF72AF22C0CFB900DE2815 /* SminingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF72AD22C0CFB900DE2815 /* SminingViewController.swift */; };
 		E9AF72B022C0CFB900DE2815 /* SminingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9AF72AE22C0CFB900DE2815 /* SminingViewController.xib */; };
+		E9AF72B222C0D55200DE2815 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9AF72B122C0D55100DE2815 /* Metal.framework */; };
 		E9D7C30F21CF1ACD00DECE6D /* uzucoin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */; };
 		E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */; };
 		E9D7C31D21CF2F3D00DECE6D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C31B21CF2F3D00DECE6D /* RootViewController.swift */; };
@@ -49,6 +50,7 @@
 		84361852D65F6E5E6B8BD9AC /* Pods-uzucoin-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uzucoin-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client.debug.xcconfig"; sourceTree = "<group>"; };
 		E9AF72AD22C0CFB900DE2815 /* SminingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SminingViewController.swift; sourceTree = "<group>"; };
 		E9AF72AE22C0CFB900DE2815 /* SminingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SminingViewController.xib; sourceTree = "<group>"; };
+		E9AF72B122C0D55100DE2815 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.pb.swift; path = ../../pb/uzucoin.pb.swift; sourceTree = "<group>"; };
 		E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.grpc.swift; path = ../../pb/uzucoin.grpc.swift; sourceTree = "<group>"; };
 		E9D7C31B21CF2F3D00DECE6D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AF72B222C0D55200DE2815 /* Metal.framework in Frameworks */,
 				8EF64B55094A23D2221BC8DC /* Pods_uzucoin_client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +124,7 @@
 		1344EC432FCD904F0A716282 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9AF72B122C0D55100DE2815 /* Metal.framework */,
 				8312107C59688B5838AE043E /* Pods_uzucoin_client.framework */,
 			);
 			name = Frameworks;
