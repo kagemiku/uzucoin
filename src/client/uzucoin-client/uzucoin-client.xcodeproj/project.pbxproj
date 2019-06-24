@@ -16,6 +16,7 @@
 		E9AF72AF22C0CFB900DE2815 /* SminingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF72AD22C0CFB900DE2815 /* SminingViewController.swift */; };
 		E9AF72B022C0CFB900DE2815 /* SminingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9AF72AE22C0CFB900DE2815 /* SminingViewController.xib */; };
 		E9AF72B222C0D55200DE2815 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9AF72B122C0D55100DE2815 /* Metal.framework */; };
+		E9AF72B422C0D5A700DE2815 /* SminingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF72B322C0D5A700DE2815 /* SminingHelper.swift */; };
 		E9AF72B722C0D7C500DE2815 /* ResolveNonce.metal in Sources */ = {isa = PBXBuildFile; fileRef = E9AF72B622C0D7C500DE2815 /* ResolveNonce.metal */; };
 		E9D7C30F21CF1ACD00DECE6D /* uzucoin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */; };
 		E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */; };
@@ -52,6 +53,7 @@
 		E9AF72AD22C0CFB900DE2815 /* SminingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SminingViewController.swift; sourceTree = "<group>"; };
 		E9AF72AE22C0CFB900DE2815 /* SminingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SminingViewController.xib; sourceTree = "<group>"; };
 		E9AF72B122C0D55100DE2815 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		E9AF72B322C0D5A700DE2815 /* SminingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SminingHelper.swift; sourceTree = "<group>"; };
 		E9AF72B622C0D7C500DE2815 /* ResolveNonce.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ResolveNonce.metal; sourceTree = "<group>"; };
 		E9D7C30D21CF1ACD00DECE6D /* uzucoin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.pb.swift; path = ../../pb/uzucoin.pb.swift; sourceTree = "<group>"; };
 		E9D7C30E21CF1ACD00DECE6D /* uzucoin.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = uzucoin.grpc.swift; path = ../../pb/uzucoin.grpc.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				E9D7C32521CF4B3800DECE6D /* ProtobufClient.swift */,
 				E9D7C33421CF5CB500DECE6D /* Defaults.swift */,
+				E9AF72B322C0D5A700DE2815 /* SminingHelper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				E9D7C33521CF5CB500DECE6D /* Defaults.swift in Sources */,
 				E9D7C33821CF60C000DECE6D /* SendingTopViewController.swift in Sources */,
 				E9AF72B722C0D7C500DE2815 /* ResolveNonce.metal in Sources */,
+				E9AF72B422C0D5A700DE2815 /* SminingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

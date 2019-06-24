@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         gRPC.initialize()
+        _ = SminingHelper.shared
 
         let userDefaults = UserDefaults.standard
         userDefaults.register(defaults: [DefaultsKeys.registered.rawValue: false])
