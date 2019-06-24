@@ -10,12 +10,15 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+    // MARK: IBOutlets
+    @IBOutlet weak var containerView: UIStackView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let vc = UzucoinTabBarViewController()
         self.addChild(vc)
-        self.view.addSubview(vc.view)
+        self.containerView.addArrangedSubview(vc.view)
         vc.didMove(toParent: self)
     }
 
