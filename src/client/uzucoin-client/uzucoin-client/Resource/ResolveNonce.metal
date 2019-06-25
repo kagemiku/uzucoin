@@ -23,7 +23,7 @@ kernel void ResolveNonce(device const char* timestamp,
 
     idx = 0;
     while ( prevHash[idx] != '\0' ) {
-        nonce[nonceIdx] = timestamp[idx];
+        nonce[nonceIdx] = prevHash[idx];
         ++idx;
         ++nonceIdx;
     }
