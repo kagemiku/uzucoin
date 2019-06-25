@@ -46,9 +46,8 @@ class SminingHelper {
         computeCommandEncoder.setBuffer(prevHashBuffer, offset: 0, index: 1)
 
         // output buffer
-        let dummyString = String(repeating: "0", count: SminingHelper.maxNonceLength)
-        let nonceCString = (dummyString as NSString).utf8String!
-        let nonceBuffer = device.makeBuffer(bytes: nonceCString, length: dummyString.utf8.count, options: [])!
+        let noncePtr = UnsafeMutablePointer<Int8>.allocate(capacity: SminingHelper.maxNonceLength)
+        let nonceBuffer = device.makeBuffer(bytes: noncePtr, length: SminingHelper.maxNonceLength, options: [])!
         computeCommandEncoder.setBuffer(nonceBuffer, offset: 0, index: 2)
 
         // number of threads per group and thread groups
@@ -59,16 +58,13 @@ class SminingHelper {
 
         computeCommandEncoder.endEncoding()
 
-        commandBuffer.addCompletedHandler { (buffer: MTLCommandBuffer) in
-            let data = Data(bytesNoCopy: nonceBuffer.contents(), count: dummyString.utf8.count, deallocator: .none)
-
-            let dummyString = String(repeating: "0", count: SminingHelper.maxNonceLength)
-            var resultData = (dummyString as NSString).utf8String!
-            resultData = data.withUnsafeBytes {
+        commandBuffer.addCompletedHandler { _ in
+            let rawData = Data(bytesNoCopy: nonceBuffer.contents(), count: SminingHelper.maxNonceLength, deallocator: .none)
+            let resultPtr: UnsafePointer<Int8> = rawData.withUnsafeBytes {
                 $0
             }
 
-            let nonceString = String(cString: resultData)
+            let nonceString = String(cString: resultPtr)
             completionHander(nonceString)
         }
 
