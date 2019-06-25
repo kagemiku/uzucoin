@@ -99,4 +99,4 @@ iOSInjectionProject/
 *.grpc.swift
 
 # exe
-uzucoin
+src/server/uzucoin
