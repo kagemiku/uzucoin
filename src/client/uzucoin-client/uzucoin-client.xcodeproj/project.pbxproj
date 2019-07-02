@@ -14,6 +14,10 @@
 		1081146621CE819400D71BC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1081146421CE819400D71BC2 /* LaunchScreen.storyboard */; };
 		10ED784F22C7A13200C80099 /* loki.metal in Sources */ = {isa = PBXBuildFile; fileRef = 10ED784E22C7A13200C80099 /* loki.metal */; };
 		10ED785122C7A14300C80099 /* loki_header.metal in Sources */ = {isa = PBXBuildFile; fileRef = 10ED785022C7A14300C80099 /* loki_header.metal */; };
+		10F0B66122CB92C200D5E525 /* myutility.metal in Sources */ = {isa = PBXBuildFile; fileRef = 10F0B66022CB92C200D5E525 /* myutility.metal */; };
+		10F0B66322CB92D300D5E525 /* myutility_header.metal in Sources */ = {isa = PBXBuildFile; fileRef = 10F0B66222CB92D300D5E525 /* myutility_header.metal */; };
+		10F0B66622CB93ED00D5E525 /* sha256_header.metal in Sources */ = {isa = PBXBuildFile; fileRef = 10F0B66522CB93ED00D5E525 /* sha256_header.metal */; };
+		10F0B66822CB93F800D5E525 /* sha256.metal in Sources */ = {isa = PBXBuildFile; fileRef = 10F0B66722CB93F800D5E525 /* sha256.metal */; };
 		8EF64B55094A23D2221BC8DC /* Pods_uzucoin_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8312107C59688B5838AE043E /* Pods_uzucoin_client.framework */; };
 		E9AF72AF22C0CFB900DE2815 /* SminingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF72AD22C0CFB900DE2815 /* SminingViewController.swift */; };
 		E9AF72B022C0CFB900DE2815 /* SminingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9AF72AE22C0CFB900DE2815 /* SminingViewController.xib */; };
@@ -52,6 +56,10 @@
 		1081146721CE819400D71BC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10ED784E22C7A13200C80099 /* loki.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = loki.metal; sourceTree = "<group>"; };
 		10ED785022C7A14300C80099 /* loki_header.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = loki_header.metal; sourceTree = "<group>"; };
+		10F0B66022CB92C200D5E525 /* myutility.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = myutility.metal; sourceTree = "<group>"; };
+		10F0B66222CB92D300D5E525 /* myutility_header.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = myutility_header.metal; sourceTree = "<group>"; };
+		10F0B66522CB93ED00D5E525 /* sha256_header.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = sha256_header.metal; sourceTree = "<group>"; };
+		10F0B66722CB93F800D5E525 /* sha256.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = sha256.metal; sourceTree = "<group>"; };
 		8312107C59688B5838AE043E /* Pods_uzucoin_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uzucoin_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84361852D65F6E5E6B8BD9AC /* Pods-uzucoin-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uzucoin-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uzucoin-client/Pods-uzucoin-client.debug.xcconfig"; sourceTree = "<group>"; };
 		E9AF72AD22C0CFB900DE2815 /* SminingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SminingViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +147,24 @@
 			path = Loki;
 			sourceTree = "<group>";
 		};
+		10F0B65F22CB927C00D5E525 /* MyUtility */ = {
+			isa = PBXGroup;
+			children = (
+				10F0B66222CB92D300D5E525 /* myutility_header.metal */,
+				10F0B66022CB92C200D5E525 /* myutility.metal */,
+			);
+			path = MyUtility;
+			sourceTree = "<group>";
+		};
+		10F0B66422CB93D300D5E525 /* SHA256 */ = {
+			isa = PBXGroup;
+			children = (
+				10F0B66522CB93ED00D5E525 /* sha256_header.metal */,
+				10F0B66722CB93F800D5E525 /* sha256.metal */,
+			);
+			path = SHA256;
+			sourceTree = "<group>";
+		};
 		1344EC432FCD904F0A716282 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +186,8 @@
 		E9AF72B522C0D7B000DE2815 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				10F0B66422CB93D300D5E525 /* SHA256 */,
+				10F0B65F22CB927C00D5E525 /* MyUtility */,
 				10ED784D22C7A10200C80099 /* Loki */,
 				E9AF72B622C0D7C500DE2815 /* ResolveNonce.metal */,
 			);
@@ -388,11 +416,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D7C32321CF31D000DECE6D /* RegistrationViewController.swift in Sources */,
+				10F0B66822CB93F800D5E525 /* sha256.metal in Sources */,
 				E9D7C32D21CF548900DECE6D /* UzucoinTabBarViewController.swift in Sources */,
 				E9D7C31D21CF2F3D00DECE6D /* RootViewController.swift in Sources */,
 				E9D7C31021CF1ACD00DECE6D /* uzucoin.grpc.swift in Sources */,
 				10ED784F22C7A13200C80099 /* loki.metal in Sources */,
+				10F0B66622CB93ED00D5E525 /* sha256_header.metal in Sources */,
 				E9D7C33C21CF687C00DECE6D /* HistoryViewController.swift in Sources */,
+				10F0B66122CB92C200D5E525 /* myutility.metal in Sources */,
 				1081145E21CE819100D71BC2 /* ViewController.swift in Sources */,
 				E9D7C32921CF4EAB00DECE6D /* RegistrationFinishViewController.swift in Sources */,
 				1081145C21CE819100D71BC2 /* AppDelegate.swift in Sources */,
@@ -400,6 +431,7 @@
 				E9D7C34021CF68CF00DECE6D /* HistoryCellView.swift in Sources */,
 				E9AF72AF22C0CFB900DE2815 /* SminingViewController.swift in Sources */,
 				10ED785122C7A14300C80099 /* loki_header.metal in Sources */,
+				10F0B66322CB92D300D5E525 /* myutility_header.metal in Sources */,
 				E9D7C30F21CF1ACD00DECE6D /* uzucoin.pb.swift in Sources */,
 				E9D7C33221CF5B1300DECE6D /* WalletViewController.swift in Sources */,
 				E9D7C33521CF5CB500DECE6D /* Defaults.swift in Sources */,
