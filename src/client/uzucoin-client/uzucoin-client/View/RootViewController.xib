@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController" customModule="uzucoin_client" customModuleProvider="target">
             <connections>
-                <outlet property="containerView" destination="ySk-05-3Zb" id="Jh2-p4-b3V"/>
+                <outlet property="containerView" destination="sbI-kb-u7k" id="VJs-7h-Udf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,18 +18,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ySk-05-3Zb">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sbI-kb-u7k">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ySk-05-3Zb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Am1-xe-VJN"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ySk-05-3Zb" secondAttribute="bottom" id="QYi-yn-Jg3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ySk-05-3Zb" secondAttribute="trailing" id="Qmu-I5-a8m"/>
-                <constraint firstItem="ySk-05-3Zb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="q6a-eH-0yq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sbI-kb-u7k" secondAttribute="trailing" id="1AV-ZZ-Tv3"/>
+                <constraint firstItem="sbI-kb-u7k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RX2-2j-1Rf"/>
+                <constraint firstItem="sbI-kb-u7k" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="WV5-r8-usy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="sbI-kb-u7k" secondAttribute="bottom" id="u52-EO-gxz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138" y="139"/>
         </view>
     </objects>
 </document>
