@@ -25,7 +25,7 @@ class UzucoinTabBarViewController: UITabBarController {
     }()
 
     private lazy var sminingVC: UINavigationController = {
-        let vc = UIViewController()
+        let vc = SminingViewController()
         let nvc = UINavigationController(rootViewController: vc)
         nvc.title = "S(min)ing!"
         return nvc
